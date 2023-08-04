@@ -20,7 +20,17 @@ Annotation(rdfs:comment "This is an Ontology of Government of Canada Departments
 
 Declaration(Class(<http://purl.obolibrary.org/gcde#GCDE_0010000>))
 Declaration(Class(<http://purl.obolibrary.org/gcde#GCDE_0010001>))
+Declaration(Class(gcde:gcde_00100051))
+Declaration(Class(gcde:gcde_00100055))
+Declaration(Class(gcde:gcde_00100056))
+Declaration(Class(gcde:gcde_00100057))
+Declaration(Class(gcde:gcde_00100058))
+Declaration(Class(gcde:gcde_00100059))
+Declaration(Class(gcde:gcde_00100060))
 Declaration(NamedIndividual(gcde:gcde_00100006))
+Declaration(NamedIndividual(gcde:gcde_00100052))
+Declaration(NamedIndividual(gcde:gcde_00100053))
+Declaration(NamedIndividual(gcde:gcde_00100054))
 Declaration(AnnotationProperty(dce:creator))
 Declaration(AnnotationProperty(dcterms:description))
 Declaration(AnnotationProperty(dcterms:license))
@@ -43,6 +53,7 @@ AnnotationAssertion(rdfs:label dcterms:title "title")
 
 
 
+
 ############################
 #   Classes
 ############################
@@ -62,6 +73,48 @@ AnnotationAssertion(Annotation(dce:source "https://climate.weather.gc.ca/glossar
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/gcde#GCDE_0010001> "Precipitation"@en)
 SubClassOf(<http://purl.obolibrary.org/gcde#GCDE_0010001> <http://www.ontologyrepository.com/CommonCoreOntologies/IntervalMeasurementInformationContentEntity>)
 
+# Class: gcde:gcde_00100051 (Tax Act)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100051 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(rdfs:label gcde:gcde_00100051 "Tax Act"@en)
+SubClassOf(gcde:gcde_00100051 <http://www.ontologyrepository.com/CommonCoreOntologies/ActOfGovernment>)
+
+# Class: gcde:gcde_00100055 (Tax Management)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100055 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(rdfs:label gcde:gcde_00100055 "Tax Management"@en)
+SubClassOf(gcde:gcde_00100055 <http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentArtifactFunction>)
+
+# Class: gcde:gcde_00100056 (Tax Collection)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100056 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(rdfs:label gcde:gcde_00100056 "Tax Collection"@en)
+SubClassOf(gcde:gcde_00100056 gcde:gcde_00100055)
+
+# Class: gcde:gcde_00100057 (Tax Disbursement)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100057 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(rdfs:label gcde:gcde_00100057 "Tax Disbursement"@en)
+SubClassOf(gcde:gcde_00100057 gcde:gcde_00100055)
+
+# Class: gcde:gcde_00100058 (Budget Allocation)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100058 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(rdfs:label gcde:gcde_00100058 "Budget Allocation"@en)
+SubClassOf(gcde:gcde_00100058 gcde:gcde_00100055)
+
+# Class: gcde:gcde_00100059 (Taxpayer)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100059 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(rdfs:label gcde:gcde_00100059 "Taxpayer"@en)
+SubClassOf(gcde:gcde_00100059 <http://www.ontologyrepository.com/CommonCoreOntologies/Person>)
+
+# Class: gcde:gcde_00100060 (Currency)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100060 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(rdfs:label gcde:gcde_00100060 "Currency"@en)
+SubClassOf(gcde:gcde_00100060 <http://www.ontologyrepository.com/CommonCoreOntologies/Resource>)
+
 
 ############################
 #   Named Individuals
@@ -69,8 +122,31 @@ SubClassOf(<http://purl.obolibrary.org/gcde#GCDE_0010001> <http://www.ontologyre
 
 # Individual: gcde:gcde_00100006 (Government of Canada)
 
+AnnotationAssertion(dce:source gcde:gcde_00100006 "https://www.canada.ca/en.html"@en)
 AnnotationAssertion(rdfs:label gcde:gcde_00100006 "Government of Canada"@en)
 ClassAssertion(<http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentOfACountry> gcde:gcde_00100006)
+
+# Individual: gcde:gcde_00100052 (Income Tax Act)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100052 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(dce:source gcde:gcde_00100052 "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/index.html"@en)
+AnnotationAssertion(rdfs:label gcde:gcde_00100052 "Income Tax Act"@en)
+ClassAssertion(gcde:gcde_00100051 gcde:gcde_00100052)
+
+# Individual: gcde:gcde_00100053 (Excise Tax Act)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100053 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(dce:source gcde:gcde_00100053 "https://laws-lois.justice.gc.ca/eng/acts/E-15/"@en)
+AnnotationAssertion(rdfs:label gcde:gcde_00100053 "Excise Tax Act"@en)
+ClassAssertion(gcde:gcde_00100051 gcde:gcde_00100053)
+
+# Individual: gcde:gcde_00100054 (Canada Revenue Agency)
+
+AnnotationAssertion(dce:creator gcde:gcde_00100054 <http://orcid.org/0000-0002-2627-0696>)
+AnnotationAssertion(dce:source gcde:gcde_00100054 "https://www.canada.ca/en/services/taxes.html"@en)
+AnnotationAssertion(<http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> gcde:gcde_00100054 "CRA"@en)
+AnnotationAssertion(rdfs:label gcde:gcde_00100054 "Canada Revenue Agency"@en)
+ClassAssertion(ObjectIntersectionOf(<http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentAgency> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000056> gcde:gcde_00100051) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000079> gcde:gcde_00100055)) gcde:gcde_00100054)
 
 
 )
