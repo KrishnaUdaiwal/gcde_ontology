@@ -18,8 +18,6 @@ Annotation(dcterms:license <https://creativecommons.org/licenses/unspecified>)
 Annotation(dcterms:title "GC Data Ecosystem ontology")
 Annotation(rdfs:comment "This is an Ontology of Government of Canada Departments")
 
-Declaration(Class(<http://purl.obolibrary.org/gcde#GCDE_0010000>))
-Declaration(Class(<http://purl.obolibrary.org/gcde#GCDE_0010001>))
 Declaration(Class(gcde:gcde_00100051))
 Declaration(Class(gcde:gcde_00100055))
 Declaration(Class(gcde:gcde_00100056))
@@ -57,21 +55,6 @@ AnnotationAssertion(rdfs:label dcterms:title "title")
 ############################
 #   Classes
 ############################
-
-# Class: <http://purl.obolibrary.org/gcde#GCDE_0010000> (Accumulated Precipitation)
-
-AnnotationAssertion(dce:creator <http://purl.obolibrary.org/gcde#GCDE_0010000> <https://orcid.org/0000-0002-2627-0696>)
-AnnotationAssertion(<http://www.ontologyrepository.com/CommonCoreOntologies/definition> <http://purl.obolibrary.org/gcde#GCDE_0010000> "A precipitation which is accumulated over a period of time."@en)
-AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/gcde#GCDE_0010000> "Accumulated Precipitation"@en)
-SubClassOf(<http://purl.obolibrary.org/gcde#GCDE_0010000> <http://purl.obolibrary.org/gcde#GCDE_0010001>)
-
-# Class: <http://purl.obolibrary.org/gcde#GCDE_0010001> (Precipitation)
-
-AnnotationAssertion(dce:creator <http://purl.obolibrary.org/gcde#GCDE_0010001> <https://orcid.org/0000-0002-2627-0696>)
-AnnotationAssertion(dcterms:description <http://purl.obolibrary.org/gcde#GCDE_0010001> "Includes drizzle, freezing drizzle, freezing rain, hail, ice crystals, ice pellets, rain, snow, snow pellets, and snow grains. Types of precipitation that originate aloft are classified under Liquid Precipitation, Freezing Precipitation and Frozen Precipitation. The measurement of precipitation is expressed in terms of vertical depth of water (or water equivalent in the case of solid forms) which reaches the ground during a stated period. The millimetre (mm) is the unit of measurement of liquid precipitation and the vertical depth of water or water equivalent is express to the nearest 0.2  mm. Less than 0.2 mm is called a \"Trace\". For climate stations operating on a 24 hours basis, total precipitation measurements end at 0600Z of the following day."@en)
-AnnotationAssertion(Annotation(dce:source "https://climate.weather.gc.ca/glossary_e.html") <http://www.ontologyrepository.com/CommonCoreOntologies/definition> <http://purl.obolibrary.org/gcde#GCDE_0010001> "An Interval Measurement Information Content Entity that measures amounts of any and all forms of water, liquid or solid, that falls from clouds and reaches the ground."@en)
-AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/gcde#GCDE_0010001> "Precipitation"@en)
-SubClassOf(<http://purl.obolibrary.org/gcde#GCDE_0010001> <http://www.ontologyrepository.com/CommonCoreOntologies/IntervalMeasurementInformationContentEntity>)
 
 # Class: gcde:gcde_00100051 (Tax Act)
 
@@ -113,7 +96,7 @@ SubClassOf(gcde:gcde_00100059 <http://www.ontologyrepository.com/CommonCoreOntol
 
 AnnotationAssertion(dce:creator gcde:gcde_00100060 <http://orcid.org/0000-0002-2627-0696>)
 AnnotationAssertion(rdfs:label gcde:gcde_00100060 "Currency"@en)
-SubClassOf(gcde:gcde_00100060 <http://www.ontologyrepository.com/CommonCoreOntologies/Resource>)
+SubClassOf(gcde:gcde_00100060 ObjectIntersectionOf(<http://www.ontologyrepository.com/CommonCoreOntologies/Resource> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> <http://www.ontologyrepository.com/CommonCoreOntologies/FinancialValue>)))
 
 
 ############################
@@ -146,7 +129,9 @@ AnnotationAssertion(dce:creator gcde:gcde_00100054 <http://orcid.org/0000-0002-2
 AnnotationAssertion(dce:source gcde:gcde_00100054 "https://www.canada.ca/en/services/taxes.html"@en)
 AnnotationAssertion(<http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> gcde:gcde_00100054 "CRA"@en)
 AnnotationAssertion(rdfs:label gcde:gcde_00100054 "Canada Revenue Agency"@en)
-ClassAssertion(ObjectIntersectionOf(<http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentAgency> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000056> gcde:gcde_00100051) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000079> gcde:gcde_00100055)) gcde:gcde_00100054)
+ClassAssertion(<http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentAgency> gcde:gcde_00100054)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000056> gcde:gcde_00100054 gcde:gcde_00100052)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000056> gcde:gcde_00100054 gcde:gcde_00100053)
 
 
 )
