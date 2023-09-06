@@ -483,7 +483,7 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/GCDE_0000010> "Da
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/GCDE_0000010> "Digital leadership")
 SubClassOf(<http://purl.obolibrary.org/obo/GCDE_0000010> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> <http://purl.obolibrary.org/obo/GCDE_0000001>))
 
-# Class: <http://purl.obolibrary.org/obo/GCDE_0000011> (Departmental Data Leads)
+# Class: <http://purl.obolibrary.org/obo/GCDE_0000011> (Discover Digital for Executives (I500))
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/GCDE_0000011> "This course introduces public service executives to the Government of Canada Digital Standards and examines the impact of new and emerging approaches to doing business in a digital economy. While exploring the impact of digital in a government context, participants will experiment by taking small, yet concrete steps towards creating a digitally enabled work environment within their own organizations.")
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/GCDE_0000011> "Departmental Data Leads")
@@ -654,7 +654,6 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.ob
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/GCDE_0000036> "Digital Exchange")
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/GCDE_0000036> "Office of the Auditor General of Canada (OAG)")
 SubClassOf(<http://purl.obolibrary.org/obo/GCDE_0000036> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> <http://purl.obolibrary.org/obo/GCDE_0000034>))
-SubClassOf(<http://purl.obolibrary.org/obo/GCDE_0000036> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> <http://purl.obolibrary.org/obo/GCDE_0000035>))
 
 # Class: <http://purl.obolibrary.org/obo/GCDE_0000039> (Canada Revenue Agency (CRA))
 

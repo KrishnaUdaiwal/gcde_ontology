@@ -21,8 +21,8 @@ vars: # Variables to be used in the pattern from defined classes
     # originating from classes, used in $name, $def, $equivalentTo
   defined_class_label: "'defined_class_label'"
   parent_class: "'parent_class'"
-#  definition: "'term definition'"
-#  definition_source: "term definition source"
+  definition: "'term definition'"
+  definition_source: "term definition source"
 
 name:
   text: "%s"
@@ -32,13 +32,13 @@ name:
 #  vars:
 #    - colour_pattern
 
-# def:
-#  text: ""
-#  text: "A coat of hair with a %s colour pattern."
-  # vars:
-  #   - definition
-#    - colour_pattern
-#  xrefs: "definition_source"
+def:
+ text: "'definition'"
+# text: "A coat of hair with a %s colour pattern."
+#  vars:
+#    - definition
+#   - colour_pattern
+ xrefs: "'definition_source'"
 
 subClassOf:
   text: "'part_of' some %s"
