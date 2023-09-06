@@ -16,34 +16,23 @@ relations:  # List of relations, or its subproperties
 #  has_characteristic: RO:0000053
   part_of: "BFO:0000050"
 
-vars: # Variables to be used in the pattern from defined classes
-#  colour_pattern: "'colour_pattern'"   
-    # originating from classes, used in $name, $def, $equivalentTo
+vars: 
   defined_class_label: "'defined_class_label'"
   parent_class: "'parent_class'"
-  definition: "'term definition'"
-  definition_source: "term definition source"
+  definition: "'definition'"
+  definition_source: "'definition_source'"
 
 name:
   text: "%s"
   vars:
     - defined_class_label
-#  text: "%s coat of hair"
-#  vars:
-#    - colour_pattern
 
 def:
- text: "'definition'"
-# text: "A coat of hair with a %s colour pattern."
-#  vars:
-#    - definition
-#   - colour_pattern
- xrefs: "'definition_source'"
+ text: "%s"
+ vars:
+   - definition
 
-subClassOf:
-  text: "'part_of' some %s"
-  vars:
-    - parent_class
-#  text: "'coat_of_hair' and 'has_characteristic' some %s"
-#  vars:
-#    - colour_pattern
+# subClassOf:
+#   text: "'part_of' some %s"
+#   vars:
+#     - parent_class
