@@ -1,0 +1,48 @@
+pattern_name: Entities Summary View -Grid view
+pattern_iri: 'http://purl.obolibrary.org/obo/obo-academy/patterns/Entities Summary View -Grid view.yaml'
+
+description: "Use Airtable full view to import all terms on an ongoing basis."
+
+classes:  # List of class/entities/types, or its subclasses
+          # Used in vars, name, def, equivalentTo
+#  government_organization: CCO:GovernmentAgency
+  parent_class: "BFO:0000001"   # Can be defined from any subclass
+#  colour_pattern: PATO:0001533
+#  coat_of_hair: UBERON:0010166  
+
+relations:  # List of relations, or its subproperties
+            # Used in vars, name, def, equivalentTo
+#  has_characteristic: RO:0000053
+  part_of: "BFO:0000050"
+
+vars: # Variables to be used in the pattern from defined classes
+#  colour_pattern: "'colour_pattern'"   
+    # originating from classes, used in $name, $def, $equivalentTo
+  defined_class_label: "'Label'"
+  parent_class: "'From ID'"
+  definition: "'Description'"
+  definition_source: "URL"
+
+name:
+  text: "%s"
+  vars:
+    - defined_class_label
+#  text: "%s coat of hair"
+#  vars:
+#    - colour_pattern
+
+def:
+  text: "%s"
+#  text: "A coat of hair with a %s colour pattern."
+  vars:
+    - definition
+#    - colour_pattern
+  xrefs: "definition_source"
+
+subClassOf:
+  text: "'part_of' some %s"
+  vars:
+    - parent_class
+#  text: "'coat_of_hair' and 'has_characteristic' some %s"
+#  vars:
+#    - colour_pattern
