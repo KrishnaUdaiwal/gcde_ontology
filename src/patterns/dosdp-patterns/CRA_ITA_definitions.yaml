@@ -1,0 +1,49 @@
+pattern_name: CRA_ITA_definitions
+pattern_iri: http://purl.obolibrary.org/obo/obo-academy/patterns/CRA_ITA_definitions.yaml
+
+description: "
+  Add CRA terms from the ITA."
+
+classes:  # List of class/entities/types, or its subclasses
+          # Used in vars, name, def, equivalentTo
+#  government_organization: CCO:GovernmentAgency
+  parent_class: "BFO:0000001"   # Can be defined from any subclass
+#  colour_pattern: PATO:0001533
+#  coat_of_hair: UBERON:0010166  
+
+relations:  # List of relations, or its subproperties
+            # Used in vars, name, def, equivalentTo
+#  has_characteristic: RO:0000053
+  part_of: "BFO:0000050"
+
+vars: # Variables to be used in the pattern from defined classes
+#  colour_pattern: "'colour_pattern'"   
+    # originating from classes, used in $name, $def, $equivalentTo
+  defined_class_label: "'defined_class_label'"
+  parent_class: "'parent_class'"
+  definition: "'term definition'"
+  definition_source: "term definition source"
+
+name:
+  text: "%s"
+  vars:
+    - defined_class_label
+#  text: "%s coat of hair"
+#  vars:
+#    - colour_pattern
+
+def:
+  text: "%s"
+#  text: "A coat of hair with a %s colour pattern."
+  vars:
+    - definition
+#    - colour_pattern
+  xrefs: "definition_source"
+
+subClassOf:
+  text: "'part_of' some %s"
+  vars:
+    - parent_class
+#  text: "'coat_of_hair' and 'has_characteristic' some %s"
+#  vars:
+#    - colour_pattern
