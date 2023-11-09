@@ -1,0 +1,70 @@
+pattern_name: tax_acts_definitions
+pattern_iri: http://purl.obolibrary.org/obo/obo-academy/patterns/tax_acts_definitions.yaml
+
+description: "
+  Add tax terms from the acts."
+
+# --------------- OWL Entity Dictionaries
+
+# classes (object): A dictionary of OWL classes. key :label; value : short form id.
+  # List of class/entities/types, or its subclasses
+  # Used in vars, name, def, equivalentTo
+classes:  
+  parent: "BFO:0000001"   # Can be defined from any subclass
+
+# objectProperties (object): A dictionary of OWL object properties. key : label; value : short form id.
+# relations (object): A dictionary of OWL object properties. key : label; value : short form id.
+  # List of relations, or its subproperties
+  # Used in vars, name, def, equivalentTo
+relations:  
+  part_of: "BFO:0000050"
+
+# dataProperties (object): A dictionary of OWL data properties key : label; value : short form id.
+# annotationProperties (object): A dictionary of OWL annotation properties key : label; value : short form id.
+annotationProperties:
+  source: dc:source
+
+# --------------- Var Types
+
+# vars (object): A dictionary of variables ranging over OWL classes. Key = variable name, value = variable range as manchester syntax string.
+# Variables to be used in the pattern from defined classes
+    # originating from classes, used in $name, $def, $equivalentTo
+vars: 
+  defined_class_label: "'defined_class_label'"
+  definition: "'definition'"
+  definition_source: "'definition_source'"
+  #parent_class: "'parent_class'"
+
+# list_vars (object): A dictionary of variables refering to lists of owl classes. Key = variable name, value = variable range of items in list specified as a valid OWL data-type.
+# data_vars (object): A dictionary of variables ranging over OWL data-types. Key = variable name, value = variable range specified as a valid OWL data-type.
+# data_list_vars (object): A dictionary of variables rrefering to lists of some specified OWL data-types. Key = variable name, value = variable range of all items in list, specified as a valid OWL data-type.
+# internal_vars (list): List of internal variable construction definitions. Given function is applied to the given multi value input and the result is defined as a new internal variable.
+  # var_name (string): Name of the internal variable to be defined. Expected naming pattern is ^[A-Za-z_][A-Za-z0-9_]*$.
+  # input (string): A list_vars or data_list_vars variable to which the given function applied.
+  # apply: Use one of the followings:
+# Var Munging: having multiple values in a variable
+  # substitutions (list)
+  # in (string): name of input var.
+  # out (string): Name of output var. If input var specified an OWL entity then readable identifier is used as input to substitution.
+  # match (string): perl style regex match.
+  # sub (string): perl style regex sub. May include backreferences.
+
+name:
+  text: '%s'
+  vars:
+  - defined_class_label
+
+annotation:
+  annotationProperty: source
+  text: '%s'
+  vars:
+  - definition_source
+
+def:
+  text: '%s'
+  vars:
+    - definition
+  xrefs: "definition_source"
+
+subClassOf:
+  text: '''part_of'' some ''parent'''
