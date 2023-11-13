@@ -3,37 +3,38 @@ pattern_iri: http://purl.obolibrary.org/obo/obo-academy/patterns/tax_acts_defini
 
 description: "
   Add tax terms from the acts."
-
 # --------------- OWL Entity Dictionaries
 
 # classes (object): A dictionary of OWL classes. key :label; value : short form id.
   # List of class/entities/types, or its subclasses
   # Used in vars, name, def, equivalentTo
 classes:  
-  parent: "BFO:0000001"   # Can be defined from any subclass
+#  parent: BFO:0000001   # Can be defined from any subclass'
+  tax_act: https://github.com/GC-Data-Ecosystem/gcde_ontology/gcde.owl#gcde_00100051
 
 # objectProperties (object): A dictionary of OWL object properties. key : label; value : short form id.
 # relations (object): A dictionary of OWL object properties. key : label; value : short form id.
   # List of relations, or its subproperties
   # Used in vars, name, def, equivalentTo
 relations:  
-  part_of: "BFO:0000050"
+  part_of: BFO:0000050
 
 # dataProperties (object): A dictionary of OWL data properties key : label; value : short form id.
 # annotationProperties (object): A dictionary of OWL annotation properties key : label; value : short form id.
 annotationProperties:
-  source: dc:source
+  source: IAO:0000119
+  tax_act: https://github.com/GC-Data-Ecosystem/gcde_ontology/gcde.owl#gcde_00100051
+  french_label: rdfs:label
 
 # --------------- Var Types
 
 # vars (object): A dictionary of variables ranging over OWL classes. Key = variable name, value = variable range as manchester syntax string.
-# Variables to be used in the pattern from defined classes
-    # originating from classes, used in $name, $def, $equivalentTo
+# Variables from the tsv columns, used in $name, $def, $equivalentTo
+# REMEMBER THAT 'KEY' IS THE TSV COLUMN NAME, AND 'VALUE' IS THE CLASS/RELATION/PROPERTY ABOVE
 vars: 
-  defined_class_label: "'defined_class_label'"
-  definition: "'definition'"
-  definition_source: "'definition_source'"
-  #parent_class: "'parent_class'"
+  definition_source: "'source'"
+  act_source: "'tax_act'"
+  french_term: "'french_label'"
 
 # list_vars (object): A dictionary of variables refering to lists of owl classes. Key = variable name, value = variable range of items in list specified as a valid OWL data-type.
 # data_vars (object): A dictionary of variables ranging over OWL data-types. Key = variable name, value = variable range specified as a valid OWL data-type.
@@ -50,21 +51,34 @@ vars:
   # sub (string): perl style regex sub. May include backreferences.
 
 name:
-  text: '%s'
+  text: "%s"
+  language: en
   vars:
   - defined_class_label
+  annotations:
+    - annotationProperty: french_label
+      language: fr
+      text: "%s"
+      vars:
+        - french_term
 
-annotation:
-  annotationProperty: source
-  text: '%s'
-  vars:
-  - definition_source
-
+### Working, builds 'definition_source' annotation with 'definition_source'/url for the definition
+### TODO Determine how to remove the 'obo url' prefix (source text converted into a url) from the act_source; potentially add "" in the tsv?
 def:
-  text: '%s'
+  text: "%s"
   vars:
     - definition
-  xrefs: "definition_source"
+  annotations:
+    - annotationProperty: source
+      text: "%s"
+      vars:
+        - definition_source
+
+annotations:
+  - annotationProperty: tax_act
+    text: "%s"
+    vars:
+      - act_source
 
 subClassOf:
-  text: '''part_of'' some ''parent'''
+  text: "'part_of' some 'tax_act'"
